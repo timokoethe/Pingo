@@ -12,4 +12,4 @@ A lightning-fast API scratchpad built for macOS.
 
 ## License
 
-DropSweep is released under the MIT License. See [LICENSE](LICENSE).
+Pingo is released under the MIT License. See [LICENSE](LICENSE).
