@@ -2,7 +2,15 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>Pingo</title>
-        <link>https://github.com/timokoethe/Pingo</link>
-        <description>Pingo release feed</description>
+        <item>
+            <title>0.1.0</title>
+            <pubDate>Sat, 27 Jun 2026 21:44:42 +0000</pubDate>
+            <link>https://github.com/timokoethe/Pingo</link>
+            <sparkle:fullReleaseNotesLink>https://github.com/timokoethe/Pingo/releases/tag/v0.1.0</sparkle:fullReleaseNotesLink>
+            <sparkle:version>1000</sparkle:version>
+            <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/timokoethe/Pingo/releases/download/v0.1.0/Pingo-0.1.0.zip" length="2744730" type="application/octet-stream" sparkle:edSignature="mQ+8ES0HWTLOmJse/cFaqrBDKl4tHyHE398bb7gUNM2dxaOf/lhDShm3qv1T1LPSBJPni2radg6p4Tp9jjVfBQ=="/>
+        </item>
     </channel>
 </rss>
