@@ -1,3 +1,4 @@
+import AppKit
 import SwiftUI
 import Sparkle
 
@@ -46,5 +47,13 @@ struct PingoApp: App {
                 .frame(width: 18, height: 18)
         }
         .menuBarExtraStyle(.window)
+        .commands {
+            CommandGroup(replacing: .appTermination) {
+                Button("Quit Pingo") {
+                    NSApp.terminate(nil)
+                }
+                .keyboardShortcut("q", modifiers: .command)
+            }
+        }
     }
 }
