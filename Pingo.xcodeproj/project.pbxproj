@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2514D53E2FEFFEB1008F0B4A /* Icon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 2514D53D2FEFFEB1008F0B4A /* Icon.icon */; };
+		255471DF2FF0698C0085BAFC /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 255471DE2FF0698C0085BAFC /* Sparkle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -15,9 +16,22 @@
 		25E0250F2FE691C900D75477 /* Pingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		255471E02FF084090085BAFC /* Exceptions for "Pingo" folder in "Pingo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 25E0250E2FE691C900D75477 /* Pingo */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		25E025112FE691C900D75477 /* Pingo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				255471E02FF084090085BAFC /* Exceptions for "Pingo" folder in "Pingo" target */,
+			);
 			path = Pingo;
 			sourceTree = "<group>";
 		};
@@ -28,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				255471DF2FF0698C0085BAFC /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +86,7 @@
 			);
 			name = Pingo;
 			packageProductDependencies = (
+				255471DE2FF0698C0085BAFC /* Sparkle */,
 			);
 			productName = Pingo;
 			productReference = 25E0250F2FE691C900D75477 /* Pingo.app */;
@@ -100,6 +116,9 @@
 			);
 			mainGroup = 25E025062FE691C900D75477;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				255471DD2FF0698C0085BAFC /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 25E025102FE691C900D75477 /* Products */;
 			projectDirPath = "";
@@ -187,7 +206,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -247,7 +266,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -272,6 +291,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pingo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Pingo;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_LSUIElement = YES;
@@ -309,6 +329,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pingo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Pingo;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_LSUIElement = YES;
@@ -352,6 +373,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		255471DD2FF0698C0085BAFC /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		255471DE2FF0698C0085BAFC /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 255471DD2FF0698C0085BAFC /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 25E025072FE691C900D75477 /* Project object */;
 }
