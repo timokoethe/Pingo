@@ -6,7 +6,7 @@ struct ScratchpadView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Picker("Methode", selection: $viewModel.method) {
+                Picker("Method", selection: $viewModel.method) {
                     ForEach(HTTPMethod.allCases) { method in
                         Text(method.rawValue).tag(method)
                     }
@@ -48,7 +48,7 @@ struct ScratchpadView: View {
                         ProgressView()
                             .controlSize(.small)
                     } else {
-                        Text("Senden")
+                        Text("Send")
                     }
                 }
                 .disabled(viewModel.isSending)
@@ -64,7 +64,24 @@ struct ScratchpadView: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
 
-                TextEditor(text: $viewModel.responseText)
+                Text(viewModel.responseSummaryText)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+
+                Text("Response Headers")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+
+                TextEditor(text: $viewModel.responseHeadersText)
+                    .font(.system(.body, design: .monospaced))
+                    .frame(height: 84)
+                    .overlay(RoundedRectangle(cornerRadius: 6).stroke(.quaternary))
+
+                Text("Response Body")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+
+                TextEditor(text: $viewModel.responseBodyText)
                     .font(.system(.body, design: .monospaced))
                     .frame(height: 160)
                     .overlay(RoundedRectangle(cornerRadius: 6).stroke(.quaternary))

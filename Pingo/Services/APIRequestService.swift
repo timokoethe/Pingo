@@ -17,13 +17,16 @@ struct URLSessionAPIRequestService: APIRequestServicing {
             urlRequest.httpBody = Data(request.body.utf8)
         }
 
+        let startDate = Date()
         let (data, response) = try await URLSession.shared.data(for: urlRequest)
+        let duration = Date().timeIntervalSince(startDate)
         let httpResponse = response as? HTTPURLResponse
 
         return APIResponse(
             statusCode: httpResponse?.statusCode ?? 0,
             headers: httpResponse?.allHeaderFields ?? [:],
-            body: String(data: data, encoding: .utf8) ?? ""
+            body: String(data: data, encoding: .utf8) ?? "",
+            duration: duration
         )
     }
 }
