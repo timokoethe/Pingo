@@ -43,4 +43,4 @@ body:
     id: context
     attributes:
       label: Additional Context
-      description: Add screenshots, recordings, permissions, or anything else that helps.
+      description: Add screenshots, recordings, request details with secrets removed, network details, or anything else that helps.
