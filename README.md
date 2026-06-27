@@ -2,7 +2,6 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-orange)](https://opensource.org/license/mit)
 ![Framework](https://img.shields.io/badge/SwiftUI-orange)
-![Swift](https://img.shields.io/badge/Swift-6-orange)
 ![Platform](https://img.shields.io/badge/Platforms-macOS-orange)
 ![Xcode](https://img.shields.io/badge/Xcode-26-orange)
 ![macOS](https://img.shields.io/badge/macOS-26-orange)
@@ -29,9 +28,9 @@ requests developers make throughout the day.
 - Quick URL input: paste an endpoint and run it immediately.
 - Header editor: add request headers in a simple `Name: Value` format.
 - Body editor: write plain request payloads for methods that need a body.
-- Response viewer: inspect the returned response body in a monospaced editor.
-- Status feedback: see request progress, validation errors, and HTTP status
-  codes at a glance.
+- Response viewer: inspect status, duration, content type, headers, and body.
+- Status feedback: see request progress, URL validation errors, and HTTP
+  status codes at a glance.
 
 ## Development
 
