@@ -7,8 +7,10 @@ final class ScratchpadViewModel {
     var method: HTTPMethod = .get
     var headersText = ""
     var bodyText = ""
-    var responseText = ""
-    var statusText = "Bereit"
+    var responseBodyText = ""
+    var responseHeadersText = ""
+    var statusText = "Ready"
+    var responseSummaryText = "No response yet"
     var isSending = false
 
     private let service: APIRequestServicing
@@ -19,12 +21,18 @@ final class ScratchpadViewModel {
 
     func sendRequest() async {
         guard let url = URL(string: urlText), url.scheme != nil, url.host != nil else {
-            statusText = "Ungueltige URL"
+            statusText = "Invalid URL"
+            responseSummaryText = "Request not sent"
+            responseHeadersText = ""
+            responseBodyText = ""
             return
         }
 
         isSending = true
-        statusText = "Sende..."
+        statusText = "Sending..."
+        responseSummaryText = "Waiting for response"
+        responseHeadersText = ""
+        responseBodyText = ""
 
         do {
             let response = try await service.send(
@@ -37,10 +45,14 @@ final class ScratchpadViewModel {
             )
 
             statusText = "Status \(response.statusCode)"
-            responseText = response.body
+            responseSummaryText = summaryText(for: response)
+            responseHeadersText = headersText(for: response.headers)
+            responseBodyText = response.body
         } catch {
-            statusText = "Fehler"
-            responseText = error.localizedDescription
+            statusText = "Error"
+            responseSummaryText = "Request failed"
+            responseHeadersText = ""
+            responseBodyText = error.localizedDescription
         }
 
         isSending = false
@@ -61,5 +73,25 @@ final class ScratchpadViewModel {
                     headers[key] = value
                 }
             }
+    }
+
+    private func summaryText(for response: APIResponse) -> String {
+        let contentType = response.headers.first { key, _ in
+            String(describing: key).caseInsensitiveCompare("Content-Type") == .orderedSame
+        }?.value
+
+        let formattedDuration = String(format: "%.0f ms", response.duration * 1000)
+        let contentTypeText = contentType.map { String(describing: $0) } ?? "Unknown content type"
+
+        return "Status \(response.statusCode) | \(formattedDuration) | \(contentTypeText)"
+    }
+
+    private func headersText(for headers: [AnyHashable: Any]) -> String {
+        headers
+            .map { key, value in
+                "\(String(describing: key)): \(String(describing: value))"
+            }
+            .sorted()
+            .joined(separator: "\n")
     }
 }
