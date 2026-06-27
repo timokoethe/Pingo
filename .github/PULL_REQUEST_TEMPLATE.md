@@ -12,4 +12,4 @@ Area: App / Website
 
 - [ ] The change is focused and easy to review.
 - [ ] I tested the affected behavior.
-- [ ] I considered file safety for Downloads-related changes, if applicable.
+- [ ] I considered network behavior and sensitive request data, if applicable.
