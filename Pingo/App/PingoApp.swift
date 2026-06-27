@@ -1,12 +1,44 @@
 import SwiftUI
+import Sparkle
 
 @main
 struct PingoApp: App {
     @State private var viewModel = ScratchpadViewModel(service: URLSessionAPIRequestService())
+    private let updaterController: SPUStandardUpdaterController
+    @StateObject private var checkForUpdatesViewModel: CheckForUpdatesViewModel
+
+    init() {
+        let updaterController = SPUStandardUpdaterController(
+            startingUpdater: true,
+            updaterDelegate: nil,
+            userDriverDelegate: nil
+        )
+
+        self.updaterController = updaterController
+        _checkForUpdatesViewModel = StateObject(
+            wrappedValue: CheckForUpdatesViewModel(updater: updaterController.updater)
+        )
+    }
 
     var body: some Scene {
         MenuBarExtra {
-            ScratchpadView(viewModel: viewModel)
+            VStack(spacing: 0) {
+                ScratchpadView(viewModel: viewModel)
+
+                Divider()
+
+                HStack {
+                    Spacer()
+
+                    Button("Check for Updates...") {
+                        updaterController.checkForUpdates(nil)
+                    }
+                    .disabled(!checkForUpdatesViewModel.canCheckForUpdates)
+                }
+                .padding(.horizontal, 14)
+                .padding(.vertical, 10)
+                .frame(width: 460)
+            }
         } label: {
             Image("MenuBarIcon")
                 .resizable()
