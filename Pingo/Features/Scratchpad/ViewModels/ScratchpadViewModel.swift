@@ -47,7 +47,7 @@ final class ScratchpadViewModel {
             statusText = "Status \(response.statusCode)"
             responseSummaryText = summaryText(for: response)
             responseHeadersText = headersText(for: response.headers)
-            responseBodyText = response.body
+            responseBodyText = bodyText(for: response)
         } catch {
             statusText = "Error"
             responseSummaryText = "Request failed"
@@ -84,6 +84,31 @@ final class ScratchpadViewModel {
         let contentTypeText = contentType.map { String(describing: $0) } ?? "Unknown content type"
 
         return "Status \(response.statusCode) | \(formattedDuration) | \(contentTypeText)"
+    }
+
+    private func bodyText(for response: APIResponse) -> String {
+        if !response.isBodyText {
+            let byteCount = response.bodyByteCount.map { "\($0) bytes" } ?? "\(response.displayedBodyByteCount)+ bytes"
+            return "Response body is not valid UTF-8 text (\(byteCount))."
+        }
+
+        guard response.isBodyTruncated else {
+            return response.body
+        }
+
+        return """
+        \(response.body)
+
+        \(truncationText(for: response))
+        """
+    }
+
+    private func truncationText(for response: APIResponse) -> String {
+        if let bodyByteCount = response.bodyByteCount {
+            return "Response body truncated. Showing \(response.displayedBodyByteCount) of \(bodyByteCount) bytes."
+        }
+
+        return "Response body truncated. Showing first \(response.displayedBodyByteCount) bytes."
     }
 
     private func headersText(for headers: [AnyHashable: Any]) -> String {
