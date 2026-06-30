@@ -29,6 +29,13 @@ struct PingoApp: App {
                 Divider()
 
                 HStack {
+                    Button {
+                        NSApp.terminate(nil)
+                    } label: {
+                        Label("Quit", systemImage: "power")
+                    }
+                    .keyboardShortcut("q", modifiers: .command)
+
                     Spacer()
 
                     Button("Check for Updates...") {
