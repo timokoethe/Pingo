@@ -42,16 +42,23 @@ struct ScratchpadView: View {
 
             HStack {
                 Button {
-                    Task { await viewModel.sendRequest() }
+                    viewModel.sendRequest()
                 } label: {
-                    if viewModel.isSending {
-                        ProgressView()
-                            .controlSize(.small)
-                    } else {
-                        Text("Send")
-                    }
+                    Text("Send")
                 }
                 .disabled(viewModel.isSending)
+
+                Button {
+                    viewModel.cancelRequest()
+                } label: {
+                    Text("Cancel")
+                }
+                .disabled(!viewModel.isSending)
+
+                if viewModel.isSending {
+                    ProgressView()
+                        .controlSize(.small)
+                }
 
                 Text(viewModel.statusText)
                     .foregroundStyle(.secondary)
