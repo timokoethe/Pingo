@@ -14,12 +14,15 @@ final class ScratchpadViewModel {
     var isSending = false
 
     private let service: APIRequestServicing
+    @ObservationIgnored private var requestTask: Task<Void, Never>?
 
     init(service: APIRequestServicing) {
         self.service = service
     }
 
-    func sendRequest() async {
+    func sendRequest() {
+        guard !isSending else { return }
+
         guard let url = URL(string: urlText), url.scheme != nil, url.host != nil else {
             statusText = "Invalid URL"
             responseSummaryText = "Request not sent"
@@ -34,28 +37,70 @@ final class ScratchpadViewModel {
         responseHeadersText = ""
         responseBodyText = ""
 
-        do {
-            let response = try await service.send(
-                APIRequest(
-                    url: url,
-                    method: method,
-                    headers: parseHeaders(headersText),
-                    body: bodyText
-                )
-            )
+        let apiRequest = APIRequest(
+            url: url,
+            method: method,
+            headers: parseHeaders(headersText),
+            body: bodyText
+        )
 
-            statusText = "Status \(response.statusCode)"
-            responseSummaryText = summaryText(for: response)
-            responseHeadersText = headersText(for: response.headers)
-            responseBodyText = bodyText(for: response)
-        } catch {
-            statusText = "Error"
-            responseSummaryText = "Request failed"
-            responseHeadersText = ""
-            responseBodyText = error.localizedDescription
+        requestTask = Task {
+            do {
+                let response = try await service.send(apiRequest)
+                try Task.checkCancellation()
+
+                statusText = "Status \(response.statusCode)"
+                responseSummaryText = summaryText(for: response)
+                responseHeadersText = headersText(for: response.headers)
+                responseBodyText = bodyText(for: response)
+            } catch {
+                responseHeadersText = ""
+
+                if Self.isCancellationError(error) {
+                    statusText = "Cancelled"
+                    responseSummaryText = "Request cancelled"
+                } else if Self.isTimeoutError(error) {
+                    statusText = "Timed out"
+                    responseSummaryText = "Request timed out"
+                    responseBodyText = error.localizedDescription
+                } else {
+                    statusText = "Error"
+                    responseSummaryText = "Request failed"
+                    responseBodyText = error.localizedDescription
+                }
+            }
+
+            isSending = false
+            requestTask = nil
+        }
+    }
+
+    func cancelRequest() {
+        guard isSending else { return }
+
+        statusText = "Cancelling..."
+        responseSummaryText = "Stopping request"
+        requestTask?.cancel()
+    }
+
+    private static func isCancellationError(_ error: Error) -> Bool {
+        if error is CancellationError {
+            return true
         }
 
-        isSending = false
+        if let urlError = error as? URLError {
+            return urlError.code == .cancelled
+        }
+
+        return false
+    }
+
+    private static func isTimeoutError(_ error: Error) -> Bool {
+        guard let urlError = error as? URLError else {
+            return false
+        }
+
+        return urlError.code == .timedOut
     }
 
     private func parseHeaders(_ text: String) -> [String: String] {

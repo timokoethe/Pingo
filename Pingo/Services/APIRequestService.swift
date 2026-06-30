@@ -6,10 +6,21 @@ protocol APIRequestServicing {
 
 struct URLSessionAPIRequestService: APIRequestServicing {
     private let maxDisplayedBodyBytes = 512 * 1024
+    private let requestTimeout: TimeInterval = 30
+    private let resourceTimeout: TimeInterval = 60
+    private let session: URLSession
+
+    init() {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = requestTimeout
+        configuration.timeoutIntervalForResource = resourceTimeout
+        self.session = URLSession(configuration: configuration)
+    }
 
     func send(_ request: APIRequest) async throws -> APIResponse {
         var urlRequest = URLRequest(url: request.url)
         urlRequest.httpMethod = request.method.rawValue
+        urlRequest.timeoutInterval = requestTimeout
 
         for (field, value) in request.headers {
             urlRequest.setValue(value, forHTTPHeaderField: field)
@@ -20,7 +31,7 @@ struct URLSessionAPIRequestService: APIRequestServicing {
         }
 
         let startDate = Date()
-        let (bytes, response) = try await URLSession.shared.bytes(for: urlRequest)
+        let (bytes, response) = try await session.bytes(for: urlRequest)
         let httpResponse = response as? HTTPURLResponse
         let bodyByteCount = httpResponse.flatMap(Self.contentLength)
         let bodyData = try await displayedBodyData(from: bytes)
