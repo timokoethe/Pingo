@@ -25,7 +25,7 @@ struct URLSessionAPIRequestService: APIRequestServicing {
         let bodyByteCount = httpResponse.flatMap(Self.contentLength)
         let bodyData = try await displayedBodyData(from: bytes)
         let duration = Date().timeIntervalSince(startDate)
-        let body = Self.utf8String(from: bodyData.data)
+        let body = Self.utf8String(from: bodyData.data, repairingTruncatedData: bodyData.isTruncated)
         let isBodyTruncated = bodyData.isTruncated || bodyByteCount.map { $0 > bodyData.data.count } == true
 
         return APIResponse(
@@ -65,7 +65,11 @@ struct URLSessionAPIRequestService: APIRequestServicing {
         return Int(value)
     }
 
-    private static func utf8String(from data: Data) -> String? {
+    private static func utf8String(from data: Data, repairingTruncatedData: Bool) -> String? {
+        guard repairingTruncatedData else {
+            return String(data: data, encoding: .utf8)
+        }
+
         var textData = data
 
         for _ in 0...3 {

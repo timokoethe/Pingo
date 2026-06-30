@@ -28,7 +28,8 @@ requests developers make throughout the day.
 - Quick URL input: paste an endpoint and run it immediately.
 - Header editor: add request headers in a simple `Name: Value` format.
 - Body editor: write plain request payloads for methods that need a body.
-- Response viewer: inspect status, duration, content type, headers, and body.
+- Response viewer: inspect status, duration, content type, headers, and text
+  response previews, with large bodies truncated for responsiveness.
 - Status feedback: see request progress, URL validation errors, and HTTP
   status codes at a glance.
 
