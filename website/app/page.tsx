@@ -87,10 +87,10 @@ export default function Home() {
               <p className="mt-2 text-[#687178]">Pingo is open source and available for macOS.</p>
             </div>
             <a
-              href="https://github.com/timokoethe/Pingo"
+              href="https://github.com/timokoethe/Pingo/releases/latest"
               className="inline-flex h-11 shrink-0 items-center justify-center rounded-lg bg-white px-5 text-sm font-medium text-[#202427] shadow-sm ring-1 ring-black/10 transition hover:bg-[#f7f8f9]"
             >
-              View on GitHub
+              Download latest release
             </a>
           </div>
         </section>
