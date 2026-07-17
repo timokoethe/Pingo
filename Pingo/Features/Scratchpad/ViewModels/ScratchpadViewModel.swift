@@ -23,7 +23,10 @@ final class ScratchpadViewModel {
     func sendRequest() {
         guard !isSending else { return }
 
-        guard let url = URL(string: urlText), url.scheme != nil, url.host != nil else {
+        guard let url = URL(string: urlText),
+              let scheme = url.scheme?.lowercased(),
+              ["http", "https"].contains(scheme),
+              url.host != nil else {
             statusText = "Invalid URL"
             responseSummaryText = "Request not sent"
             responseHeadersText = ""
