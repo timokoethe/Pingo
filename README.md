@@ -4,7 +4,7 @@
 ![Framework](https://img.shields.io/badge/SwiftUI-orange)
 ![Platform](https://img.shields.io/badge/Platforms-macOS-orange)
 ![Xcode](https://img.shields.io/badge/Xcode-26-orange)
-![macOS](https://img.shields.io/badge/macOS-26-orange)
+![macOS](https://img.shields.io/badge/macOS-14%2B-orange)
 ![Apple](https://img.shields.io/badge/Apple-000000?style=flat&logo=apple)
 
 Pingo is a lightning-fast API scratchpad built for the macOS menu bar. It gives
