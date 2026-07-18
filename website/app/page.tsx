@@ -3,6 +3,59 @@ import { MacosPreview } from "@/components/macos-preview";
 import { Navbar } from "@/components/navbar";
 import appIcon from "./icon.png";
 
+const LATEST_RELEASE_URL =
+  "https://github.com/timokoethe/Pingo/releases/latest";
+const RELEASE_API_URL =
+  "https://api.github.com/repos/timokoethe/Pingo/releases/latest";
+
+type GitHubRelease = {
+  html_url?: string;
+  assets?: Array<{
+    name?: string;
+    browser_download_url?: string;
+  }>;
+};
+
+async function getLatestReleaseDownloadUrl(): Promise<string> {
+  try {
+    const response = await fetch(RELEASE_API_URL, {
+      headers: {
+        Accept: "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+      next: { revalidate: 3600 },
+    });
+
+    if (!response.ok) {
+      return LATEST_RELEASE_URL;
+    }
+
+    const release = (await response.json()) as GitHubRelease;
+    const assets = Array.isArray(release.assets) ? release.assets : [];
+    const downloadAsset =
+      assets.find(
+        (asset) =>
+          typeof asset.name === "string" &&
+          asset.name.toLowerCase().endsWith(".dmg"),
+      ) ??
+      assets.find(
+        (asset) =>
+          typeof asset.name === "string" &&
+          asset.name.toLowerCase().endsWith(".zip"),
+      );
+    const assetUrl =
+      typeof downloadAsset?.browser_download_url === "string"
+        ? downloadAsset.browser_download_url
+        : null;
+    const releaseUrl =
+      typeof release.html_url === "string" ? release.html_url : null;
+
+    return assetUrl ?? releaseUrl ?? LATEST_RELEASE_URL;
+  } catch {
+    return LATEST_RELEASE_URL;
+  }
+}
+
 const capabilities = [
   {
     title: "Request",
@@ -18,8 +71,9 @@ const capabilities = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
   const currentYear = new Date().getFullYear();
+  const downloadUrl = await getLatestReleaseDownloadUrl();
 
   return (
     <div className="min-h-screen bg-[#f7f8f9] text-[#1d1d1f]">
@@ -87,7 +141,7 @@ export default function Home() {
               <p className="mt-2 text-[#687178]">Pingo is open source and available for macOS.</p>
             </div>
             <a
-              href="https://github.com/timokoethe/Pingo/releases/latest"
+              href={downloadUrl}
               className="inline-flex h-11 shrink-0 items-center justify-center rounded-lg bg-white px-5 text-sm font-medium text-[#202427] shadow-sm ring-1 ring-black/10 transition hover:bg-[#f7f8f9]"
             >
               Download latest release
