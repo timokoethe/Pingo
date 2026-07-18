@@ -1,14 +1,17 @@
 import Image from "next/image";
+import { SoftwareApplicationJsonLd } from "@/components/SoftwareApplicationJsonLd";
+import { WebSiteJsonLd } from "@/components/WebSiteJsonLd";
 import { MacosPreview } from "@/components/macos-preview";
 import { Navbar } from "@/components/navbar";
+import { REPO_URL } from "@/lib/seo";
 import appIcon from "./icon.png";
 
-const LATEST_RELEASE_URL =
-  "https://github.com/timokoethe/Pingo/releases/latest";
+const LATEST_RELEASE_URL = `${REPO_URL}/releases/latest`;
 const RELEASE_API_URL =
   "https://api.github.com/repos/timokoethe/Pingo/releases/latest";
 
 type GitHubRelease = {
+  tag_name?: string;
   html_url?: string;
   assets?: Array<{
     name?: string;
@@ -16,7 +19,12 @@ type GitHubRelease = {
   }>;
 };
 
-async function getLatestReleaseDownloadUrl(): Promise<string> {
+type LatestRelease = {
+  version: string | null;
+  downloadUrl: string;
+};
+
+async function getLatestRelease(): Promise<LatestRelease> {
   try {
     const response = await fetch(RELEASE_API_URL, {
       headers: {
@@ -27,7 +35,7 @@ async function getLatestReleaseDownloadUrl(): Promise<string> {
     });
 
     if (!response.ok) {
-      return LATEST_RELEASE_URL;
+      return { version: null, downloadUrl: LATEST_RELEASE_URL };
     }
 
     const release = (await response.json()) as GitHubRelease;
@@ -50,9 +58,13 @@ async function getLatestReleaseDownloadUrl(): Promise<string> {
     const releaseUrl =
       typeof release.html_url === "string" ? release.html_url : null;
 
-    return assetUrl ?? releaseUrl ?? LATEST_RELEASE_URL;
+    return {
+      version:
+        typeof release.tag_name === "string" ? release.tag_name : null,
+      downloadUrl: assetUrl ?? releaseUrl ?? LATEST_RELEASE_URL,
+    };
   } catch {
-    return LATEST_RELEASE_URL;
+    return { version: null, downloadUrl: LATEST_RELEASE_URL };
   }
 }
 
@@ -73,10 +85,15 @@ const capabilities = [
 
 export default async function Home() {
   const currentYear = new Date().getFullYear();
-  const downloadUrl = await getLatestReleaseDownloadUrl();
+  const release = await getLatestRelease();
 
   return (
     <div className="min-h-screen bg-[#f7f8f9] text-[#1d1d1f]">
+      <WebSiteJsonLd />
+      <SoftwareApplicationJsonLd
+        downloadUrl={release.downloadUrl}
+        version={release.version}
+      />
       <Navbar />
 
       <main>
@@ -141,7 +158,7 @@ export default async function Home() {
               <p className="mt-2 text-[#687178]">Pingo is open source and available for macOS.</p>
             </div>
             <a
-              href={downloadUrl}
+              href={release.downloadUrl}
               className="inline-flex h-11 shrink-0 items-center justify-center rounded-lg bg-white px-5 text-sm font-medium text-[#202427] shadow-sm ring-1 ring-black/10 transition hover:bg-[#f7f8f9]"
             >
               Download latest release
