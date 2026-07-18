@@ -71,15 +71,15 @@ async function getLatestRelease(): Promise<LatestRelease> {
 const capabilities = [
   {
     title: "Request",
-    text: "GET, POST, PUT, PATCH und DELETE mit URL, Headern und Body.",
+    text: "GET, POST, PUT, PATCH, and DELETE with a URL, headers, and body.",
   },
   {
     title: "Response",
-    text: "Status, Dauer, Content-Type, Header und Textantwort auf einen Blick.",
+    text: "Status, duration, content type, headers, and response body at a glance.",
   },
   {
     title: "Control",
-    text: "Ungültige URLs werden erkannt, laufende Anfragen lassen sich abbrechen.",
+    text: "Invalid URLs are detected, and requests in progress can be cancelled.",
   },
 ];
 
