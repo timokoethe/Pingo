@@ -160,7 +160,7 @@ export default async function Home() {
                 Pingo for macOS
               </p>
               <h1 className="mt-4 text-5xl font-semibold tracking-[-0.045em] text-[#17191b] sm:text-6xl">
-                Small requests,
+                Small API requests,
                 <br />
                 kept simple.
               </h1>
