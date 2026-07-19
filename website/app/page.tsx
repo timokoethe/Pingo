@@ -113,10 +113,10 @@ export default async function Home() {
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href="#download"
+                  href={release.downloadUrl}
                   className="inline-flex h-11 items-center justify-center rounded-lg bg-[#202427] px-5 text-sm font-medium text-white transition hover:bg-black"
                 >
-                  Get Pingo
+                  Download Pingo
                 </a>
                 <a
                   href="#details"
