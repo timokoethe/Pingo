@@ -11,6 +11,9 @@ Pingo is a lightning-fast API scratchpad built for the macOS menu bar. It gives
 you a focused place to fire off small HTTP requests without opening a full API
 client.
 
+[Product website](https://pingo.itstimo.me) ·
+[Implementation reference](https://itstimo.me/projects/pingo)
+
 Designed for quick checks while building, debugging, or exploring APIs, Pingo
 keeps the essential request flow close at hand: choose a method, paste a URL,
 add headers or a body when needed, send the request, and inspect the response
@@ -49,7 +52,7 @@ The native SwiftUI app is located in [`Pingo/`](Pingo/).
 
 ### Website
 
-The Pingo website is developed separately in [`website/`](website/). 
+The Pingo website is developed separately in [`website/`](website/).
 Its
 Next.js application code is located in [`website/app/`](website/app/), with the
 landing page in [`website/app/page.tsx`](website/app/page.tsx).
@@ -63,7 +66,7 @@ npm run dev
 ```
 
 The development server is available at
-[http://localhost:3000](http://localhost:3000). 
+[http://localhost:3000](http://localhost:3000).
 See the
 [website README](website/README.md) for the available scripts and deployment
 details.
