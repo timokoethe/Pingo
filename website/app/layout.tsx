@@ -65,11 +65,27 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/SocialPreview.png",
+        width: 1200,
+        height: 630,
+        alt: "Pingo - Small API requests. Kept simple.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Pingo - API scratchpad for your macOS menu bar",
     description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: "/SocialPreview.png",
+        width: 1200,
+        height: 630,
+        alt: "Pingo - Small API requests. Kept simple.",
+      },
+    ],
   },
   robots: {
     index: true,
