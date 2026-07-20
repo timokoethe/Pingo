@@ -131,7 +131,7 @@ final class ScratchpadViewModel {
         let formattedDuration = String(format: "%.0f ms", response.duration * 1000)
         let contentTypeText = contentType.map { String(describing: $0) } ?? "Unknown content type"
 
-        return "Status \(response.statusCode) | \(formattedDuration) | \(contentTypeText)"
+        return "\(formattedDuration) | \(contentTypeText)"
     }
 
     private func bodyText(for response: APIResponse) -> String {
