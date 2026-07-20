@@ -3,14 +3,14 @@
     <channel>
         <title>Pingo</title>
         <item>
-            <title>0.1.1</title>
-            <pubDate>Mon, 20 Jul 2026 17:12:04 +0000</pubDate>
+            <title>0.1.2</title>
+            <pubDate>Mon, 20 Jul 2026 17:42:33 +0000</pubDate>
             <link>https://github.com/timokoethe/Pingo</link>
-            <sparkle:fullReleaseNotesLink>https://github.com/timokoethe/Pingo/releases/tag/v0.1.1</sparkle:fullReleaseNotesLink>
-            <sparkle:version>1001</sparkle:version>
-            <sparkle:shortVersionString>0.1.1</sparkle:shortVersionString>
+            <sparkle:fullReleaseNotesLink>https://github.com/timokoethe/Pingo/releases/tag/v0.1.2</sparkle:fullReleaseNotesLink>
+            <sparkle:version>1002</sparkle:version>
+            <sparkle:shortVersionString>0.1.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/timokoethe/Pingo/releases/download/v0.1.1/Pingo-0.1.1.zip" length="3106527" type="application/octet-stream" sparkle:edSignature="RMucjkc6ouD9UAIxedb5hSa7NMA5Ul3nBgNJxRSc5vBhwfIlbo9kjtVDMXzRUZZxX78Q2WSlPWoKkdi+stwQDg=="/>
+            <enclosure url="https://github.com/timokoethe/Pingo/releases/download/v0.1.2/Pingo-0.1.2.zip" length="3106691" type="application/octet-stream" sparkle:edSignature="Q/daoP5Ap3sels5prLTUeRIIHV1QKdxsujv0aFsE3EB2E/xjIu94tj3MIu98EgaR2vACogNVgum/CqFsGtnGDA=="/>
         </item>
     </channel>
 </rss>
