@@ -39,6 +39,7 @@ export function SoftwareApplicationJsonLd({
       "Configure request headers and bodies",
       "Inspect response status, duration, content type, headers, and body",
       "Cancel requests in progress",
+      "Send isolated requests without automatic cookies, caching, or stored HTTP credentials",
       "Access the scratchpad from the macOS menu bar",
     ],
     author: {

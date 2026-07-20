@@ -31,6 +31,9 @@ requests developers make throughout the day.
 - Quick URL input: paste an endpoint and run it immediately.
 - Header editor: add request headers in a simple `Name: Value` format.
 - Body editor: write plain request payloads for methods that need a body.
+- Stateless requests: Pingo does not automatically store or resend cookies,
+  cached responses, or HTTP credentials. Explicit `Cookie`, `Authorization`,
+  and cache-control headers remain fully supported through the header editor.
 - Request control: cancel in-flight requests, with network timeouts to keep
   unresponsive endpoints from hanging the scratchpad.
 - Response viewer: inspect status, duration, content type, headers, and text

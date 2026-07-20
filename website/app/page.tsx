@@ -137,6 +137,10 @@ const capabilities = [
     title: "Control",
     text: "Invalid URLs are detected, and requests in progress can be cancelled.",
   },
+  {
+    title: "Isolation",
+    text: "No automatic cookie jar, response cache, or HTTP credential store.",
+  },
 ];
 
 export default async function Home() {
@@ -202,7 +206,7 @@ export default async function Home() {
               Nothing to configure before the first request.
             </h2>
           </div>
-          <div className="mt-10 grid divide-y divide-black/10 border-y border-black/10 md:grid-cols-3 md:divide-x md:divide-y-0">
+          <div className="mt-10 grid divide-y divide-black/10 border-y border-black/10 md:grid-cols-4 md:divide-x md:divide-y-0">
             {capabilities.map((capability) => (
               <article
                 key={capability.title}
