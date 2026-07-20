@@ -7,6 +7,8 @@ export const SITE_DESCRIPTION =
 
 export const SITE_URL = "https://pingo.itstimo.me";
 
+export const SITE_LAST_MODIFIED = "2026-07-19";
+
 export const PORTFOLIO_URL = "https://itstimo.me/projects/pingo";
 
 export const WEBSITE_ID = `${SITE_URL}/#website`;
