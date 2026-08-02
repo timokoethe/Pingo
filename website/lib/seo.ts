@@ -7,7 +7,7 @@ export const SITE_DESCRIPTION =
 
 export const SITE_URL = "https://pingo.itstimo.me";
 
-export const SITE_LAST_MODIFIED = "2026-07-19";
+export const SITE_LAST_MODIFIED = "2026-08-02";
 
 export const PORTFOLIO_URL = "https://itstimo.me/projects/pingo";
 

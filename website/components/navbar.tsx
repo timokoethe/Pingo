@@ -11,13 +11,28 @@ export function Navbar() {
           <span className="text-base font-semibold tracking-[-0.02em] text-[#202427]">Pingo</span>
         </Link>
 
-        <a
-          href="https://github.com/timokoethe/Pingo"
-          className="flex items-center gap-2 text-sm font-medium text-[#202427] transition hover:opacity-60"
-        >
-          <Image src="/github.svg" alt="" width={18} height={18} />
-          GitHub
-        </a>
+        <nav aria-label="Primary" className="flex items-center gap-3 sm:gap-5">
+          <Link
+            href="/faq"
+            className="text-sm text-[#63717b] transition hover:text-[#202427]"
+          >
+            FAQ
+          </Link>
+          <Link
+            href="/privacy"
+            className="text-sm text-[#63717b] transition hover:text-[#202427]"
+          >
+            Privacy
+          </Link>
+          <a
+            href="https://github.com/timokoethe/Pingo"
+            aria-label="Pingo on GitHub"
+            className="flex items-center gap-2 text-sm font-medium text-[#202427] transition hover:opacity-60"
+          >
+            <Image src="/github.svg" alt="" width={18} height={18} />
+            <span className="hidden sm:inline">GitHub</span>
+          </a>
+        </nav>
       </nav>
     </header>
   );
