@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { SoftwareApplicationJsonLd } from "@/components/SoftwareApplicationJsonLd";
 import { WebSiteJsonLd } from "@/components/WebSiteJsonLd";
@@ -246,8 +247,11 @@ export default async function Home() {
         </section>
       </main>
 
-      <footer className="mx-auto flex max-w-6xl items-center justify-between px-5 py-7 text-sm text-[#7b848a] sm:px-6">
-        <div className="flex items-center gap-3">
+      <footer className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 py-7 text-sm text-[#7b848a] sm:flex-row sm:px-6">
+        <Link
+          href="/"
+          className="flex items-center gap-3 transition hover:text-[#202427]"
+        >
           <Image
             src={appIcon}
             alt=""
@@ -256,8 +260,17 @@ export default async function Home() {
             className="rounded-md"
           />
           <span>Pingo</span>
-        </div>
-        <div className="flex items-center gap-3">
+        </Link>
+        <nav
+          aria-label="Footer"
+          className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3"
+        >
+          <Link href="/faq" className="transition hover:text-[#202427]">
+            FAQ
+          </Link>
+          <Link href="/privacy" className="transition hover:text-[#202427]">
+            Privacy
+          </Link>
           <a href={PORTFOLIO_URL} className="transition hover:text-[#202427]">
             Implementation
           </a>
@@ -268,7 +281,7 @@ export default async function Home() {
             Timo Köthe
           </a>
           <span>© {currentYear}</span>
-        </div>
+        </nav>
       </footer>
     </div>
   );
