@@ -53,6 +53,11 @@ open Pingo.xcodeproj
 
 The native SwiftUI app is located in [`Pingo/`](Pingo/).
 
+Feature specifications for the native app live in
+[`docs/features/`](docs/features/). Use the
+[`_template.md`](docs/features/_template.md) file when documenting a new feature.
+These specifications track macOS app changes only, not website changes.
+
 ### Website
 
 The Pingo website is developed separately in [`website/`](website/).

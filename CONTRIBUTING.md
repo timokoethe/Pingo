@@ -13,6 +13,11 @@ open Pingo.xcodeproj
 ## Guidelines
 
 - Keep pull requests small and focused.
+- For native app features, review the specifications in
+  [`docs/features/`](docs/features/) and keep the relevant document aligned with
+  user-visible behavior. Start new specifications from
+  [`docs/features/_template.md`](docs/features/_template.md). Do not use this
+  directory to document website-only changes.
 - Follow the existing Swift and SwiftUI style.
 - Be careful with network behavior. Pingo sends HTTP requests from the user's Mac.
 - Keep the request session stateless: do not enable automatic cookies, response
