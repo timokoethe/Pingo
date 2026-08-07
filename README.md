@@ -76,8 +76,12 @@ npm run dev
 The development server is available at
 [http://localhost:3000](http://localhost:3000).
 See the
-[website README](website/README.md) for the available scripts and deployment
+[website README](website/README.md) for the available scripts and development
 details.
+
+Maintainer instructions for publishing the macOS app, updating the Sparkle
+feed, and deploying the production website live in the
+[release process](docs/release.md).
 
 ## Contributing
 

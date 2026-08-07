@@ -15,3 +15,12 @@
   placeholder front matter and sections, and keep acceptance criteria observable,
   concise, and implementation-independent.
 - The guidance in `website/AGENTS.md` also applies to work inside `website/`.
+
+## Release documentation
+
+- The canonical release process lives in `docs/release.md`.
+- Every change to the release workflow, release scripts, signing or notarization
+  setup, Sparkle distribution, release-note generation, or production website
+  deployment must update `docs/release.md` in the same change.
+- Other documentation may link to `docs/release.md` but must not duplicate its
+  release instructions.

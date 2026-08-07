@@ -32,3 +32,7 @@ open Pingo.xcodeproj
 Use GitHub Issues for bugs and feature requests. Please include your Pingo version, macOS version, and steps to reproduce.
 
 For security issues, follow [SECURITY.md](SECURITY.md).
+
+## Releases
+
+Maintainers should follow the canonical [release process](docs/release.md).
