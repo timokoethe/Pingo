@@ -145,7 +145,7 @@ export default async function Home() {
   const release = await getLatestRelease();
 
   return (
-    <div className="min-h-screen bg-[#f7f8f9] text-[#1d1d1f]">
+    <div className="min-h-screen bg-background text-foreground">
       <WebSiteJsonLd />
       <SoftwareApplicationJsonLd
         downloadUrl={release.downloadUrl}
@@ -157,15 +157,15 @@ export default async function Home() {
         <section className="border-b border-black/10">
           <div className="mx-auto grid max-w-6xl items-center gap-14 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-[0.88fr_1.12fr] lg:py-24">
             <div className="max-w-xl">
-              <p className="text-sm font-medium text-[#63717b]">
+              <p className="text-sm font-medium text-foreground-subtle">
                 Pingo for macOS
               </p>
-              <h1 className="mt-4 text-5xl font-semibold tracking-[-0.045em] text-[#17191b] sm:text-6xl">
+              <h1 className="mt-4 text-5xl font-semibold tracking-[-0.045em] text-foreground-display sm:text-6xl">
                 Small API requests,
                 <br />
                 kept simple.
               </h1>
-              <p className="mt-6 max-w-lg text-lg leading-8 text-[#5f686f]">
+              <p className="mt-6 max-w-lg text-lg leading-8 text-foreground-lead">
                 A compact API scratchpad that lives in your menu bar. Send a
                 request, inspect the response, and get back to what you were
                 doing.
@@ -173,18 +173,18 @@ export default async function Home() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
                   href={release.downloadUrl}
-                  className="inline-flex h-11 items-center justify-center rounded-lg bg-[#202427] px-5 text-sm font-medium text-white transition hover:bg-black"
+                  className="inline-flex h-11 items-center justify-center rounded-lg bg-foreground-strong px-5 text-sm font-medium text-white transition hover:bg-black"
                 >
                   Download Pingo
                 </a>
                 <a
                   href="#details"
-                  className="inline-flex h-11 items-center justify-center rounded-lg border border-black/15 bg-white px-5 text-sm font-medium text-[#30363a] transition hover:bg-[#f2f3f4]"
+                  className="inline-flex h-11 items-center justify-center rounded-lg border border-black/15 bg-white px-5 text-sm font-medium text-foreground-medium transition hover:bg-background-hover"
                 >
                   See what it does
                 </a>
               </div>
-              <p className="mt-4 text-sm text-[#646d75]">
+              <p className="mt-4 text-sm text-foreground-muted">
                 Requires macOS 14 or later.
               </p>
             </div>
@@ -198,8 +198,8 @@ export default async function Home() {
           className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-20"
         >
           <div className="max-w-xl">
-            <p className="text-sm font-medium text-[#63717b]">The essentials</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.035em] text-[#17191b] sm:text-4xl">
+            <p className="text-sm font-medium text-foreground-subtle">The essentials</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.035em] text-foreground-display sm:text-4xl">
               Nothing to configure before the first request.
             </h2>
           </div>
@@ -209,10 +209,10 @@ export default async function Home() {
                 key={capability.title}
                 className="py-6 md:px-7 md:first:pl-0 md:last:pr-0"
               >
-                <h3 className="font-medium text-[#202427]">
+                <h3 className="font-medium text-foreground-strong">
                   {capability.title}
                 </h3>
-                <p className="mt-2 leading-7 text-[#646d75]">
+                <p className="mt-2 leading-7 text-foreground-muted">
                   {capability.text}
                 </p>
               </article>
@@ -222,20 +222,20 @@ export default async function Home() {
 
         <section
           id="download"
-          className="border-t border-black/10 bg-[#eff2f3]"
+          className="border-t border-black/10 bg-background-sunken"
         >
           <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-5 py-12 sm:px-6 md:flex-row md:items-center">
             <div>
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-[#17191b]">
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-foreground-display">
                 Ready when a request needs checking.
               </h2>
-              <p className="mt-2 text-[#646d75]">
+              <p className="mt-2 text-foreground-muted">
                 Pingo is open source and available for macOS.
               </p>
             </div>
             <a
               href={release.downloadUrl}
-              className="inline-flex h-11 shrink-0 items-center justify-center rounded-lg bg-white px-5 text-sm font-medium text-[#202427] shadow-sm ring-1 ring-black/10 transition hover:bg-[#f7f8f9]"
+              className="inline-flex h-11 shrink-0 items-center justify-center rounded-lg bg-white px-5 text-sm font-medium text-foreground-strong shadow-sm ring-1 ring-black/10 transition hover:bg-background"
             >
               Download latest release
             </a>

@@ -1,5 +1,11 @@
 import { Power } from "lucide-react";
 
+/*
+ * This component reproduces the native macOS window, not the site design, so
+ * its colors stay literal instead of using the palette tokens in globals.css.
+ * They should track the app's appearance, not the website's.
+ */
+
 const editorClassName =
   "mt-1 block w-full resize-none rounded-[7px] border border-[#aeb5b9] bg-white/35 px-2 py-1.5 font-mono text-[11px] text-[#283238] outline-none shadow-[inset_0_1px_1px_rgba(0,0,0,0.025)] focus:border-[#748d98] focus:ring-2 focus:ring-[#d7e8ef]";
 

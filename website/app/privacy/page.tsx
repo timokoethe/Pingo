@@ -14,10 +14,10 @@ export const metadata = createPageMetadata({
 const sectionClassName =
   "border-b border-black/10 pb-10 last:border-0 last:pb-0";
 const headingClassName =
-  "text-xl font-semibold tracking-[-0.02em] text-[#202427]";
-const paragraphClassName = "mt-4 text-sm leading-7 text-[#646d75]";
+  "text-xl font-semibold tracking-[-0.02em] text-foreground-strong";
+const paragraphClassName = "mt-4 text-sm leading-7 text-foreground-muted";
 const linkClassName =
-  "font-medium text-[#202427] underline decoration-black/20 underline-offset-4 hover:decoration-[#202427]";
+  "font-medium text-foreground-strong underline decoration-black/20 underline-offset-4 hover:decoration-foreground-strong";
 
 export default function PrivacyPage() {
   return (
