@@ -17,7 +17,7 @@ export default function NotFound() {
       <h1 className="mt-3 text-3xl font-semibold tracking-[-0.035em] sm:text-5xl">
         Page not found.
       </h1>
-      <p className="mt-4 max-w-md text-balance leading-7 text-[#687178]">
+      <p className="mt-4 max-w-md text-balance leading-7 text-[#646d75]">
         This URL does not point to a Pingo page. Return to the product, or read
         how the app is implemented.
       </p>

@@ -43,12 +43,12 @@ export function MacosPreview() {
             <button type="button" disabled className="h-6 rounded-[7px] bg-[#f0f0f1] px-3 text-[#a1a5a8]">
               Cancel
             </button>
-            <span className="text-[#6d7479]">Ready</span>
+            <span className="text-[#667178]">Ready</span>
           </div>
 
           <div className="mt-3.5">
             <p className="text-[11px] leading-4 font-medium text-[#667178]">Response</p>
-            <p className="mt-1 text-[11px] leading-4 text-[#747c81]">No response yet</p>
+            <p className="mt-1 text-[11px] leading-4 text-[#667178]">No response yet</p>
             <p className="mt-1 text-[11px] leading-4 font-medium text-[#667178]">Response Headers</p>
             <textarea readOnly className={`${editorClassName} !mt-0.5 h-[85px]`} />
             <p className="mt-2 text-[11px] leading-4 font-medium text-[#667178]">Response Body</p>

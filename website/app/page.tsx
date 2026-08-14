@@ -188,7 +188,7 @@ export default async function Home() {
                   See what it does
                 </a>
               </div>
-              <p className="mt-4 text-sm text-[#788188]">
+              <p className="mt-4 text-sm text-[#646d75]">
                 Requires macOS 14 or later.
               </p>
             </div>
@@ -216,7 +216,7 @@ export default async function Home() {
                 <h3 className="font-medium text-[#202427]">
                   {capability.title}
                 </h3>
-                <p className="mt-2 leading-7 text-[#687178]">
+                <p className="mt-2 leading-7 text-[#646d75]">
                   {capability.text}
                 </p>
               </article>
@@ -233,7 +233,7 @@ export default async function Home() {
               <h2 className="text-2xl font-semibold tracking-[-0.03em] text-[#17191b]">
                 Ready when a request needs checking.
               </h2>
-              <p className="mt-2 text-[#687178]">
+              <p className="mt-2 text-[#646d75]">
                 Pingo is open source and available for macOS.
               </p>
             </div>
@@ -247,7 +247,7 @@ export default async function Home() {
         </section>
       </main>
 
-      <footer className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 py-7 text-sm text-[#7b848a] sm:flex-row sm:px-6">
+      <footer className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 py-7 text-sm text-[#646d75] sm:flex-row sm:px-6">
         <Link
           href="/"
           className="flex items-center gap-3 transition hover:text-[#202427]"
