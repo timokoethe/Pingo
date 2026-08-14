@@ -97,26 +97,26 @@ export default function FAQPage() {
               <span>{question}</span>
               <span
                 aria-hidden="true"
-                className="text-xl font-light text-[#646d75] transition-transform group-open:rotate-45"
+                className="text-xl font-light text-foreground-muted transition-transform group-open:rotate-45"
               >
                 +
               </span>
             </summary>
-            <p className="max-w-2xl pt-4 text-sm leading-7 text-[#646d75]">
+            <p className="max-w-2xl pt-4 text-sm leading-7 text-foreground-muted">
               {answer}
             </p>
           </details>
         ))}
       </div>
       <section className="mt-12 rounded-xl border border-black/10 bg-white p-6">
-        <h2 className="font-semibold text-[#202427]">Still have a question?</h2>
-        <p className="mt-2 text-sm leading-6 text-[#646d75]">
+        <h2 className="font-semibold text-foreground-strong">Still have a question?</h2>
+        <p className="mt-2 text-sm leading-6 text-foreground-muted">
           Visit the open-source project to review the implementation, report a
           bug, or suggest an improvement.
         </p>
         <a
           href={`${REPO_URL}/issues`}
-          className="mt-5 inline-flex h-10 items-center justify-center rounded-lg bg-[#202427] px-5 text-sm font-medium text-white transition hover:bg-black"
+          className="mt-5 inline-flex h-10 items-center justify-center rounded-lg bg-foreground-strong px-5 text-sm font-medium text-white transition hover:bg-black"
         >
           Open GitHub Issues
         </a>
