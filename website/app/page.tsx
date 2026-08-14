@@ -1,12 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { SoftwareApplicationJsonLd } from "@/components/SoftwareApplicationJsonLd";
 import { WebSiteJsonLd } from "@/components/WebSiteJsonLd";
 import { MacosPreview } from "@/components/macos-preview";
 import { Navbar } from "@/components/navbar";
+import { SiteFooter } from "@/components/site-footer";
 import {
-  PORTFOLIO_URL,
   REPO_URL,
   SITE_DESCRIPTION,
   SITE_KEYWORDS,
@@ -14,7 +12,6 @@ import {
   SITE_TITLE,
   SOCIAL_IMAGE_PATH,
 } from "@/lib/seo";
-import appIcon from "./icon.png";
 
 export const metadata: Metadata = {
   title: { absolute: SITE_TITLE },
@@ -145,7 +142,6 @@ const capabilities = [
 ];
 
 export default async function Home() {
-  const currentYear = new Date().getFullYear();
   const release = await getLatestRelease();
 
   return (
@@ -247,42 +243,7 @@ export default async function Home() {
         </section>
       </main>
 
-      <footer className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 py-7 text-sm text-[#646d75] sm:flex-row sm:px-6">
-        <Link
-          href="/"
-          className="flex items-center gap-3 transition hover:text-[#202427]"
-        >
-          <Image
-            src={appIcon}
-            alt=""
-            width={24}
-            height={24}
-            className="rounded-md"
-          />
-          <span>Pingo</span>
-        </Link>
-        <nav
-          aria-label="Footer"
-          className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3"
-        >
-          <Link href="/faq" className="transition hover:text-[#202427]">
-            FAQ
-          </Link>
-          <Link href="/privacy" className="transition hover:text-[#202427]">
-            Privacy
-          </Link>
-          <a href={PORTFOLIO_URL} className="transition hover:text-[#202427]">
-            Implementation
-          </a>
-          <a
-            href="https://itstimo.me"
-            className="transition hover:text-[#202427]"
-          >
-            Timo Köthe
-          </a>
-          <span>© {currentYear}</span>
-        </nav>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
