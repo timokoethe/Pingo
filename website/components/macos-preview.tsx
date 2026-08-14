@@ -5,12 +5,13 @@ const editorClassName =
 
 export function MacosPreview() {
   return (
-    <div className="mx-auto w-full max-w-[461px]">
+    // A decorative mock of the app window. The controls are non-functional, so
+    // they stay out of the tab order and the accessibility tree.
+    <div className="mx-auto w-full max-w-[461px]" aria-hidden="true" inert>
       <div className="overflow-hidden rounded-[18px] border border-[#9aa5aa] bg-[#f8f8f8] shadow-[0_20px_48px_rgba(37,47,53,0.15),0_3px_10px_rgba(37,47,53,0.08)]">
         <div className="bg-[linear-gradient(180deg,#e3f8ff_0%,#eefaff_20%,#f8f8f8_100%)] px-[14px] pt-[14px] pb-[13px]">
           <div className="grid grid-cols-[96px_1fr] gap-2">
             <select
-              aria-label="HTTP method"
               defaultValue="GET"
               className="h-6 rounded-[7px] border-0 bg-[#d3e7ee] px-3 text-[13px] font-medium text-[#11181c] outline-none focus:ring-2 focus:ring-[#8eaebc]"
             >
@@ -21,7 +22,6 @@ export function MacosPreview() {
               <option>DELETE</option>
             </select>
             <input
-              aria-label="Request URL"
               defaultValue="https://httpbin.org/get"
               className="h-6 min-w-0 rounded-[7px] border-0 bg-[#d3e7ee] px-2 text-[13px] text-[#172126] outline-none focus:ring-2 focus:ring-[#8eaebc]"
             />
@@ -29,11 +29,11 @@ export function MacosPreview() {
 
           <div className="mt-3">
             <p className="text-[11px] leading-4 font-medium text-[#667178]">Headers</p>
-            <textarea aria-label="Request headers" className={`${editorClassName} h-[73px]`} />
+            <textarea className={`${editorClassName} h-[73px]`} />
           </div>
           <div className="mt-3">
             <p className="text-[11px] leading-4 font-medium text-[#667178]">Body</p>
-            <textarea aria-label="Request body" className={`${editorClassName} !mt-0.5 h-[97px]`} />
+            <textarea className={`${editorClassName} !mt-0.5 h-[97px]`} />
           </div>
 
           <div className="mt-3 flex h-6 items-center gap-2 text-[13px]">
@@ -50,10 +50,9 @@ export function MacosPreview() {
             <p className="text-[11px] leading-4 font-medium text-[#667178]">Response</p>
             <p className="mt-1 text-[11px] leading-4 text-[#747c81]">No response yet</p>
             <p className="mt-1 text-[11px] leading-4 font-medium text-[#667178]">Response Headers</p>
-            <textarea aria-label="Response headers" readOnly className={`${editorClassName} !mt-0.5 h-[85px]`} />
+            <textarea readOnly className={`${editorClassName} !mt-0.5 h-[85px]`} />
             <p className="mt-2 text-[11px] leading-4 font-medium text-[#667178]">Response Body</p>
             <textarea
-              aria-label="Response body"
               readOnly
               className={`${editorClassName} !mt-0 h-[161px]`}
             />
