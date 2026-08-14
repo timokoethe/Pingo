@@ -27,14 +27,14 @@ export function InfoPage({
           <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-[#17191b] sm:text-5xl">
             {title}
           </h1>
-          <p className="mt-5 max-w-2xl text-base leading-7 text-[#687178] sm:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-7 text-[#646d75] sm:text-lg">
             {description}
           </p>
         </header>
         <div className="py-12">{children}</div>
       </main>
       <footer className="border-t border-black/10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 py-7 text-sm text-[#7b848a] sm:flex-row sm:px-6">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 py-7 text-sm text-[#646d75] sm:flex-row sm:px-6">
           <Link
             href="/"
             className="flex items-center gap-3 transition hover:text-[#202427]"

@@ -97,12 +97,12 @@ export default function FAQPage() {
               <span>{question}</span>
               <span
                 aria-hidden="true"
-                className="text-xl font-light text-[#788188] transition-transform group-open:rotate-45"
+                className="text-xl font-light text-[#646d75] transition-transform group-open:rotate-45"
               >
                 +
               </span>
             </summary>
-            <p className="max-w-2xl pt-4 text-sm leading-7 text-[#687178]">
+            <p className="max-w-2xl pt-4 text-sm leading-7 text-[#646d75]">
               {answer}
             </p>
           </details>
@@ -110,7 +110,7 @@ export default function FAQPage() {
       </div>
       <section className="mt-12 rounded-xl border border-black/10 bg-white p-6">
         <h2 className="font-semibold text-[#202427]">Still have a question?</h2>
-        <p className="mt-2 text-sm leading-6 text-[#687178]">
+        <p className="mt-2 text-sm leading-6 text-[#646d75]">
           Visit the open-source project to review the implementation, report a
           bug, or suggest an improvement.
         </p>
