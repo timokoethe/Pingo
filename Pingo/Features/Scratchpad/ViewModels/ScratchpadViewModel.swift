@@ -7,10 +7,10 @@ final class ScratchpadViewModel {
     var method: HTTPMethod = .get
     var headersText = ""
     var bodyText = ""
-    var responseBodyText = ""
-    var responseHeadersText = ""
-    var statusText = "Ready"
-    var responseSummaryText = "No response yet"
+    private(set) var responseBodyText = ""
+    private(set) var responseHeadersText = ""
+    private(set) var statusText = "Ready"
+    private(set) var responseSummaryText = "No response yet"
     var isSending = false
 
     private let service: APIRequestServicing
