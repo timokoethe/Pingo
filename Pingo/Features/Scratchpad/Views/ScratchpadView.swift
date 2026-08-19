@@ -79,23 +79,29 @@ struct ScratchpadView: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
 
-                TextEditor(text: $viewModel.responseHeadersText)
-                    .font(.system(.body, design: .monospaced))
-                    .frame(height: 84)
-                    .overlay(RoundedRectangle(cornerRadius: 6).stroke(.quaternary))
+                responseText(viewModel.responseHeadersText, height: 84)
 
                 Text("Response Body")
                     .font(.caption)
                     .foregroundStyle(.secondary)
 
-                TextEditor(text: $viewModel.responseBodyText)
-                    .font(.system(.body, design: .monospaced))
-                    .frame(height: 160)
-                    .overlay(RoundedRectangle(cornerRadius: 6).stroke(.quaternary))
+                responseText(viewModel.responseBodyText, height: 160)
             }
         }
         .padding(14)
         .frame(width: 460)
+    }
+
+    private func responseText(_ text: String, height: CGFloat) -> some View {
+        ScrollView {
+            Text(text)
+                .font(.system(.body, design: .monospaced))
+                .textSelection(.enabled)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(4)
+        }
+        .frame(height: height)
+        .overlay(RoundedRectangle(cornerRadius: 6).stroke(.quaternary))
     }
 }
 

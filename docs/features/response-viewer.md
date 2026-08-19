@@ -21,3 +21,4 @@ As a user, I want to inspect a response so that I can quickly understand how an 
 - UTF-8 response bodies are displayed as text.
 - Large response bodies are truncated with a visible notice.
 - A non-text response is identified without displaying corrupted content.
+- The displayed response can be selected and copied, but not edited.
