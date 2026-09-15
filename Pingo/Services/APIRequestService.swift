@@ -56,21 +56,22 @@ struct URLSessionAPIRequestService: APIRequestServicing {
         )
     }
 
+    @concurrent
     private func displayedBodyData(
         from bytes: URLSession.AsyncBytes
     ) async throws -> (data: Data, isTruncated: Bool) {
-        var data = Data()
-        data.reserveCapacity(maxDisplayedBodyBytes)
+        var buffer = [UInt8]()
+        buffer.reserveCapacity(maxDisplayedBodyBytes)
 
         for try await byte in bytes {
-            guard data.count < maxDisplayedBodyBytes else {
-                return (data, true)
+            guard buffer.count < maxDisplayedBodyBytes else {
+                return (Data(buffer), true)
             }
 
-            data.append(byte)
+            buffer.append(byte)
         }
 
-        return (data, false)
+        return (Data(buffer), false)
     }
 
     private static func contentLength(from response: HTTPURLResponse) -> Int? {
