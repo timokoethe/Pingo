@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import appIcon from "@/app/icon.png";
-import { PORTFOLIO_URL } from "@/lib/seo";
 
 type SiteFooterProps = {
   /**
@@ -38,9 +37,6 @@ export function SiteFooter({ bordered = false }: SiteFooterProps) {
           <Link href="/privacy" className="transition hover:text-foreground-strong">
             Privacy
           </Link>
-          <a href={PORTFOLIO_URL} className="transition hover:text-foreground-strong">
-            Implementation
-          </a>
           <a href="https://itstimo.me" className="transition hover:text-foreground-strong">
             Timo Köthe
           </a>
