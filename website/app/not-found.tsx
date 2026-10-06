@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { SiteFooter } from "@/components/site-footer";
-import { PORTFOLIO_URL, REPO_URL } from "@/lib/seo";
+import { REPO_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Page not found",
@@ -23,7 +23,7 @@ export default function NotFound() {
         </h1>
         <p className="mt-4 max-w-md text-balance leading-7 text-foreground-muted">
           This URL does not point to a Pingo page. Return to the product, or
-          read how the app is implemented.
+          explore the source code on GitHub.
         </p>
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
           <Link
@@ -32,12 +32,6 @@ export default function NotFound() {
           >
             Back to Pingo
           </Link>
-          <a
-            href={PORTFOLIO_URL}
-            className="inline-flex h-11 items-center justify-center rounded-lg border border-black/15 bg-white px-5 text-sm font-medium text-foreground-medium transition hover:bg-background-hover"
-          >
-            Implementation reference
-          </a>
           <a
             href={REPO_URL}
             className="inline-flex h-11 items-center justify-center rounded-lg border border-black/15 bg-white px-5 text-sm font-medium text-foreground-medium transition hover:bg-background-hover"
