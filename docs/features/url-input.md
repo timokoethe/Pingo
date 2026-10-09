@@ -19,4 +19,5 @@ As a user, I want to paste an endpoint URL so that I can send a request immediat
 
 - The scratchpad provides an editable URL field.
 - Pingo accepts HTTP and HTTPS URLs with a host.
+- Requests to HTTP endpoints can be sent without requiring HTTPS.
 - An invalid URL is rejected before a request is sent.
