@@ -44,6 +44,8 @@ Pushing the tag is the actual release trigger, so verify the version carefully b
 
 The `.github/workflows/release.yml` workflow responds to tags beginning with `v` and then validates the complete tag format.
 
+The workflow pins its GitHub Actions to commit SHAs. The artifact download fails if the downloaded artifact's digest does not match the uploaded artifact.
+
 The workflow performs the following steps:
 
 1. It checks out the tagged commit, validates the tag, and calculates the version and build number.
@@ -58,6 +60,8 @@ The workflow performs the following steps:
 Release-note categories are derived from pull-request labels: new features, bug fixes, documentation, maintenance, and other changes. The generated appcast contains only the new release, links its full release notes to the GitHub Release, and uses the GitHub Release asset as the update download.
 
 ## macOS Build and Sparkle Distribution
+
+The Xcode project pins Sparkle to an exact version so the app build and the appcast generator resolve the same release.
 
 The workflow derives the app versions directly from the tag:
 
